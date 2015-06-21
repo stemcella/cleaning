@@ -23,5 +23,5 @@ substitute the activity names by information from "activity_label.txt"
 changed the subject column to "participant" using for loop. 
 
 ### STEP5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-I made secondary tidy dataset by calculating mean values from each subject and activities,  group_by() %>% summarise_each() %>% arrange()  command made TidyData data frame.
+I made secondary tidy dataset by calculating mean values from each subject and activities,  group_by() %>% summarise_each() %>% arrange()  command made TidyData data frame. (contains 180 observations and 69 values)
 the output file was written by write.table
