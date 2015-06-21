@@ -4,17 +4,21 @@ To write conclusion first, I think I did not get right answer. I have tried to a
 ###STEP0. DOWNLOADING FILES
 To handle data frame easily, I employed dplyr package, 
 url : the address for downloading data zip file.
+dataset.zip : destined file from downloading
 
 ### STEP1. MERGING DATA TABLE (561+3 columns, 7352+2947 rows)
 train and test files were read from each source files. 
 I made a "dataset" by rbind two data frames.   
+dataset : contains train + test data 
 column names of dataset was extracted from the features.txt file. 
 the activity and subject column were made from "y_train,y_test.txt" and "subject_train,subject_test.txt" file. 
 for identifying each dataset(train,test) I added one column named group. 
-After that, all values are merged by cbind and named as fdata 
+After that, all values are merged by cbind and named as fdata
+fdata : all dataset merged [10299 x 564]
 
 ### STEP2. Extracting Mean and Std values (66+3 columns, 7352+2947 rows)
 To extract the column contains the value related to "mean" and "std", I used select command. But this made unusual error. So I added a line to change the name as valid one. As result, I got the "Final" data frame have dimension (10299row, 69 col.)
+Final : selected columns contains mean and std values
 
 ### STEP3. Uses descriptive activity names to name the activities in the data set
 substitute the activity names by information from "activity_label.txt"
@@ -25,3 +29,4 @@ changed the subject column to "participant" using for loop.
 ### STEP5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 I made secondary tidy dataset by calculating mean values from each subject and activities,  group_by() %>% summarise_each() %>% arrange()  command made TidyData data frame. (contains 180 observations and 69 values)
 the output file was written by write.table
+TidyData : second, independent tidy data calculated from "Final" dataframe.
